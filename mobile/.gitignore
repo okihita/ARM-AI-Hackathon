@@ -32,3 +32,7 @@ temp/
 
 # Bundle
 vendor/bundle/
+
+# Models (too large for git)
+assets/models/*.gguf
+assets/models/*.bin
