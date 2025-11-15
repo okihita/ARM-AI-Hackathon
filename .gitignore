@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+backend/.terraform/
+backend/terraform.tfstate*
+backend/.terraform.lock.hcl
+mobile/android/build/
+mobile/android/app/build/
+mobile/ios/build/
+mobile/ios/Pods/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+backend/local.properties
+mobile/android/local.properties
+
+# Temp
+tmp/
+temp/

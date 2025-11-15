@@ -1,0 +1,433 @@
+
+G-CAV-RN: 14-Day Hybrid AI (GCP + React Native) Hackathon Blueprint
+https://arm-ai-developer-challenge.devpost.com/
+
+Executive Strategy: The "G-CAV-RN" Blueprint
+This document outlines a 14-day, 168-hour (12-hours/day) high-intensity sprint plan to develop the "GCP-Accelerated Civic Advocate" (G-CAV) project, pivoted to a React Native (RN) client. The primary objective is to win the Arm AI Hackathon by demonstrating best-in-class, GPU-accelerated on-device AI. The secondary objective is to build a "certification-grade" Google Cloud Platform (GCP) backend.
+The plan is structured into two parallel workstreams:
+P1 (GCP-Cert): A 7-day sprint to build the complete, serverless "AI Data Factory" backend.
+P0 (Hackathon-Win): A 7-day sprint to build the Arm-optimized React Native application.
+
+Definitive 14-Day Hackathon Schedule
+
+This plan mitigates the primary project dependency—that the P0 app is useless without the P1 data package—by front-loading the GCP work and scheduling a critical-path "Spike" on Day 8 to de-risk all native React Native dependencies in parallel.
+Day
+Week 1: P1 (GCP-Cert) "AI Data Factory"
+Week 2: P0 (Hackathon-Win) "React Native Hero"
+Day 1
+Foundation & IaC (Terraform)
+-
+Day 2
+CI/CD "Steel Thread" (Cloud Build)
+-
+Day 3
+Multi-Modal Data Processing (Gemini Vision)
+-
+Day 4
+Cloud-Side Vector Pipeline (Vertex AI)
+-
+Day 5
+"Package Builder" Service (sqlite-vec in Python)
+-
+Day 6
+Global Distribution (CDN) & Security (Firebase JWT)
+-
+Day 7
+IAP Admin Portal & Pipeline Hardening
+-
+Day 8
+-
+Critical Spike: De-risk op-sqlite & llama.rn
+Day 9
+-
+"Cloud-to-Edge" Sync (Download & Unzip)
+Day 10
+-
+The "Unified RAG Stack" (Full Offline Loop)
+Day 11
+-
+"The Win" - Arm Optimization (Metal/OpenCL)
+Day 12
+-
+"WOW" Factor - Hybrid-Cloud Vision RAG
+Day 13
+-
+Demo & Narrative Prep
+Day 14
+-
+Final Submission & Buffer
+
+The "Hybrid AI" Narrative: Pitching "Cloud-to-Edge" in a "Private Cloud Compute" World
+
+The judging narrative is as crucial as the technology. The "Hybrid-Wow" pitch from the original plan 1 is sound, but it can be elevated by framing it in the context of the entire industry's current trajectory.
+Apple's "Apple Intelligence" architecture, announced in 2024 and 2025, has defined the new standard for personal AI: a hybrid model.2 This model uses a compact, ~3-billion parameter on-device model for most tasks to ensure privacy and speed.5 For more complex requests, it offloads work to "Private Cloud Compute" (PCC)—a secure, non-logging, custom-silicon cloud that performs heavy lifting before returning a result.7
+This project is a direct, tangible implementation of that exact, state-of-the-art architecture:
+On-Device Model: The mandated Phi-3-mini 9 is our ~3.8B parameter on-device model, running 100% offline for total user privacy.
+Private Cloud Compute: The P1 "AI Data Factory" 1 is our PCC. It is a private, secure, serverless backend that performs the computationally massive tasks (parsing terabytes of civic data, running Gemini 1.5 Pro Vision on images, generating embeddings with Vertex AI) that are impossible to run on-device.
+Cloud-to-Edge Sync: The app's "Sync" button is the "Cloud-to-Edge" handoff. It pulls the distilled intelligence (the data package) from the private cloud, making the app autonomous.
+The Demo Pitch: "We have not just built a hackathon project. We have implemented the exact, state-of-the-art, privacy-first hybrid architecture that Apple is defining as the future of personal intelligence. Our GCP factory manufactures intelligence; our Arm-optimized React Native app delivers it, privately and efficiently."
+
+Core Technology Stack (The "G-CAV-Evolved" Pivot)
+
+The technical pivot from the original plan 1 to the new "G-CAV-Evolved" stack 9 is mandatory. The following table provides the definitive translation from the old (invalid) stack to the new (required) React Native stack.
+Table 1: G-CAV Stack Translation
+
+Component
+Original Plan
+New Mandated Plan
+App Framework
+Flutter
+React Native (User Request)
+LLM Engine
+Gemini Nano (via Android AICore)
+llama.cpp 9
+RN Binding
+N/A
+llama.rn 11
+LLM Model
+Gemini Nano
+Microsoft Phi-3-mini (GGUF) 9
+Vector DB
+sqlite-vss (Faiss-based)
+sqlite-vec (Pure C) 9
+RN Binding
+sqlite_flutter_libs
+@op-engineering/op-sqlite (Provides built-in sqlite-vec) 15
+Query Embedding
+tflite_flutter (Separate Model)
+"Unified Stack" 9 via llama.rn's embedding mode 12
+File Download
+N/A
+react-native-blob-util (For large file/BLOB handling) 19
+GCP Backend
+P1 Data Factory 1
+P1 Data Factory (AFFIRMED) 1
+
+Target Judging Criteria: A 14-Day Plan for Winning
+
+The sprint is explicitly structured to "win" each judging criterion on a specific day.
+Technological Implementation: Won on Day 10 (Full RAG Loop) and Day 11 (Arm Optimization). This is proven not by simply running an LLM, but by demonstrating native, GPU-accelerated inference on Arm. We will use llama.cpp's first-class support for Apple Metal (iOS) and OpenCL (Android) to achieve maximum performance.10
+User Experience: Won on Day 11 (UI Polish). The app will be responsive and "jank-free".21 By using the llama.rn streaming API, the response will appear immediately (token-by-token), driven by the GPU-accelerated backend.
+Potential Impact: Won on Day 13 (Narrative). The "Private Cloud Compute" narrative 3 proves this is a scalable, secure, industry-standard architecture, not just a hackathon toy.
+"WOW" Factor: Won on Day 12 (Hybrid Vision) and Day 13 (The Demo). The 100% "Airplane Mode" RAG demo 1 combined with the multi-modal "Hybrid-Cloud Vision RAG" 1 provides an unbeatable one-two punch.
+
+P1 (GCP-Cert) | Week 1: Building the "AI Data Factory"
+
+This 7-day sprint (Days 1-7) is adopted directly from the original P1 architecture, which was affirmed as the correct and optimal solution.1 All infrastructure must be deployed via Terraform and Cloud Build for certification prep.1
+
+Day 1 (12h): Foundation & IaC (Terraform)
+
+AM (6h): GCP Project setup, billing, gcloud CLI auth. Enable all necessary APIs: Cloud Run, Cloud Build, Vertex AI (Search and gemini-1.5-pro-vision-001), Pub/Sub, Cloud SQL, API Gateway, App Engine, and IAM. git init.
+PM (6h): Author main.tf, variables.tf, and iam.tf. Define Terraform resources for:
+GCS: g-cav-raw-data-prod (landing zone) and g-cav-data-packages-prod (public CDN bucket).1
+Pub/Sub: new-raw-data topic.1
+Cloud SQL (Postgres): g-cav-master-db instance.1
+IAM: data-processor-sa and package-builder-sa with least-privilege roles.1
+Daily Result (Displayable): A terminal screenshot of a successful terraform apply and the GCP console showing all core, empty infrastructure provisioned.
+
+Day 2 (12h): CI/CD & The "Steel Thread"
+
+AM (6h): Author cloudbuild.yaml. Configure a Cloud Build trigger to execute on push to the main branch.
+PM (6h): Code the skeleton data-processor-job (Python/FastAPI). This is a Cloud Run Job. Its sole function is to receive a Pub/Sub message, parse the GCS file URI from the message data, print() the URI to the console, and exit successfully. Deploy via gcloud run jobs deploy.1
+Daily Result (Displayable): A screen-capture video demonstrating the full "steel thread" of the event-driven pipeline:
+git push the skeleton code to GitHub.
+Show the Cloud Build job automatically building the container and deploying the Cloud Run Job.
+Upload test.txt to the g-cav-raw-data-prod GCS bucket.
+Show the Cloud Run Job triggering automatically and its logs printing "Received file: gs://g-cav-raw-data-prod/test.txt".
+
+Day 3 (12h): Multi-Modal Data Processing
+
+AM (6h): Enhance the data-processor-job. Add the unstructured-io Python library. Implement logic to parse PDFs and .txt files into clean text chunks.1
+PM (6h): Implement the "Multi-Modal Wow".1 Add logic: if the file's content-type is image/png or image/jpeg, the job calls the Vertex AI Gemini 1.5 Pro Vision API. The rich, descriptive text returned from the API is then treated as the "text chunk" for that file.1
+Daily Result (Displayable): A screenshot of the Cloud Run job logs showing two separate invocations:
+Input 1 (.pdf) -> Log shows: [Parsed 5 text chunks from document.pdf...]
+Input 2 (.jpg of a city hall) -> Log shows: [Gemini Vision: "A photo of the Ministry of Education, a large white building with columns..."].1
+
+Day 4 (12h): The Cloud-Side Vector Pipeline
+
+AM (6h): Enhance the data-processor-job. For each text chunk generated (from PDF or Vision), call the Vertex AI Embeddings API (text-embedding-004) to generate a vector embedding.1
+PM (6h): Implement the database-write logic. Metadata (e.g., agency name, phone, address) is written to the Cloud SQL (Postgres) master DB. The embeddings and associated metadata are written to the Vertex AI Vector Search (Matching Engine) index.1
+Daily Result (Displayable): A screenshot of the Vertex AI Vector Search console showing a populated index with a non-zero vector count. This confirms the cloud-side "source of truth" RAG is populated.
+
+Day 5 (12h): The "Package Builder" Service (The P1/P0 Pivot)
+
+AM (6h): Create the new package-builder-api as a Cloud Run Service (i.e., HTTP-triggered, not event-triggered).1
+PM (6h): Critical Pivot Implementation. This Python service must build the sqlite-vec database, as the original sqlite-vss plan is invalid.9
+The service's Dockerfile must pip install sqlite-vec.14
+The service logic will:
+Query all metadata from Cloud SQL.
+Query all vectors from Vertex AI Vector Search.1
+Create a local data.sqlite file on the Cloud Run instance's ephemeral disk.24
+Connect to this local DB: db = sqlite3.connect('data.sqlite').
+Load the extension: db.enable_load_extension(True), sqlite_vec.load(db).22
+Create tables for metadata (e.g., agencies).
+Create the virtual vector table: db.execute('CREATE VIRTUAL TABLE vss_index USING vec0(text_chunk TEXT, embedding FLOAT)') (adjusting dimension for the embedding model).14
+Loop and INSERT all data. Vectors must be serialized as np.float32 blobs for insertion.22
+Finally, the service compresses the file (data.sqlite.v{timestamp}.gz) and uploads it to the g-cav-data-packages-prod GCS bucket.1
+Daily Result (Displayable): A screenshot of the g-cav-data-packages-prod GCS bucket containing the first complete, downloadable data.sqlite.gz file. This is the primary deliverable for Week 2.
+
+Day 6 (12h): Global Distribution & Security
+
+AM (6h): Configure Cloud CDN in Terraform, setting the g-cav-data-packages-prod GCS bucket as the backend origin.1
+PM (6h): Implement the "Cert-Prep Gold" secure API.1
+Go to the Firebase Auth console and enable Anonymous Sign-in.27
+Build the check-for-update Cloud Function (Python). It returns a simple JSON: { "latest_version": "...", "download_url": "..." }.1
+Secure this function with API Gateway, configuring a security policy that requires a valid Firebase Auth JWT.
+Daily Result (Displayable): Two curl command screenshots:
+curl https://cdn.g-cav.com/data.sqlite.latest.gz --output - | gunzip -l - (Shows a successful file download and valid compression).
+curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" https://api.g-cav.com/check-update (Shows a successful JSON response).
+
+Day 7 (12h): The "IAP" Admin Portal & Pipeline Solidification
+
+AM (6h): Build the IAP (Identity-Aware Proxy) secured App Engine portal (Python/Flask).1 This simple web app provides:
+A "Trigger Package Build" button (sends an authenticated HTTP request to the Day 5 package-builder-api service).
+A "Test Cloud RAG" text input (runs a test query directly against the master Vertex AI Vector Search db).1
+PM (6h): Buffer time. Test the entire pipeline end-to-end: upload an image, see it in the "Cloud RAG" test input, trigger a package build, and download the new package from the CDN. Harden all IAM roles.
+Daily Result (Displayable): A video showing a login to the IAP-secured web portal using a personal Google account, uploading a new file, triggering the pipeline, and seeing the new data.sqlite.gz appear in the GCS bucket. P1 is complete.
+
+P0 (Hackathon-Win) | Week 2: Building the "React Native Hero"
+
+This 7-day sprint (Days 8-14) builds the React Native application using the mandated "G-CAV-Evolved" stack.9
+
+Day 8 (12h): The Critical Path Spike (De-risking Native Code)
+
+This is the most important technical day of the hackathon. It replaces the high-risk "manual compilation" task 9 with a simple, configuration-based integration of pre-built, high-performance native modules.
+AM (6h): npx react-native init GCAV_RN. Install @op-engineering/op-sqlite.17
+Configuration: Modify package.json to add the "op-sqlite" configuration block: {..., "op-sqlite": { "sqliteVec": true, "performanceMode": true } }.17
+Run npx pod-install (for iOS) and npx expo prebuild --clean (if using Expo).17
+Write a simple App.tsx with a "Test sqlite-vec" button. The onPress handler must open a test DB and execute db.execute('SELECT vec_version()').22
+PM (6h): Install llama.rn.12
+Download a tiny GGUF model (e.g., TinyLlama 1.1B, not Phi-3 yet) and add it to the build assets (android/app/src/main/assets and via Xcode).
+Add a "Test Llama" button. The onPress handler must: const context = await initLlama({ model: 'asset://tiny-model.gguf' }); const result = await context.completion('The sky is');
+Daily Result (Displayable): A video of the skeleton app running on both an iOS simulator and an Android emulator.
+Pressing "Test sqlite-vec" shows an alert: "vec_version: v0.1.7".
+Pressing "Test Llama" shows an alert: "completion: blue". This proves all native modules, C++ code, and JSI bindings are correctly linked and operational.
+
+Day 9 (12h): The "Cloud-to-Edge" Sync
+
+AM (6h): Build the skeleton UI (a basic chat interface using react-native-gifted-chat, a "Sync Data" button/status indicator). Install @react-native-firebase/app and @react-native-firebase/auth.29
+Implement getUpdateJwt(): await auth().signInAnonymously() 30, then const jwt = await auth().currentUser.getIdToken().31
+Implement checkForUpdates(): fetch('https://api.g-cav.com/check-update', { headers: { 'Authorization': \Bearer ${jwt}` } })`.
+PM (6h): Implement the data download service.
+Install react-native-blob-util 19 and react-native-zip-archive.32
+On "Sync" press:
+Call checkForUpdates() to get the download_url for data.sqlite.gz and the real phi-3-mini-instruct-q4.gguf model.
+Use RNFetchBlob.config({ path:... }) 32 to download both large files to the app's sandboxed Dirs.DocumentDir.20
+Use unzip(sourcePath, targetPath) 32 to decompress data.sqlite.gz to data.sqlite in the same directory.
+Daily Result (Displayable): A video of the app. It starts, the "Sync" button is yellow ("Needs Sync"). The user presses it. It logs "JWT acquired..." and "Downloading files...". A progress bar updates. It logs "Unzipping database...". The button turns green ("Synced"). Logs from react-native-blob-util's fs.ls() command show the data.sqlite and phi-3-mini.gguf files now exist in the app's private storage.
+
+Day 10 (12h): The "Unified RAG Stack" (Full On-Device Loop)
+
+This day implements the "Unified RAG Stack," using llama.rn for both embedding and generation, which is a major architectural simplification.9
+AM (6h): The "R" (Retrieve) and "A" (Augment).
+Create LlamaService.ts: init() method loads the model from the (now downloaded) file path. initLlama({ model: 'file://.../phi-3-mini.gguf', embedding: true }).12
+Create DatabaseService.ts: init() method opens the database openDatabase({ name: 'data.sqlite', location: '.../DocumentDir' }).
+Implement getRelevantChunks(query: string):
+const queryVector = await LlamaService.embedding(query).12
+const sql = "SELECT text_chunk, metadata FROM vss_index ORDER BY vec_distance(embedding,?) ASC LIMIT 5".9
+const results = await DatabaseService.execute(sql, [queryVector]). Return the text_chunk strings.
+PM (6h): The "G" (Generate).
+In the chat UI onSend(messages) handler:
+const userInput = messages.text.
+const contextChunks = await getRelevantChunks(userInput).
+const context = contextChunks.join('\n\n').
+Construct the finalPrompt using the exact Phi-3 template: <|system|>You are a helpful civic assistant. Answer based *only* on the provided context.{context}<|end|><|user|>{userInput}<|end|><|assistant|>.9
+const result = await LlamaService.completion(finalPrompt).
+Update the chat state with the result.text.
+Daily Result (Displayable): The app is fully functional. A video shows:
+The phone is put into Airplane Mode.
+A query is typed: "What are the office hours for the sanitation department?"
+After a 5-10 second "thinking" pause (CPU inference), a correct, context-aware response appears. This is the P0 goal.
+
+Day 11 (12h): The "Win" Day: Arm Optimization & UI Polish
+
+This day is dedicated to addressing the "Technological Implementation" and "User Experience" judging criteria.
+AM (6h): Technological Implementation (Arm Optimization).
+Android:
+Install expo-build-properties (if not already).12
+In app.json (or app.config.js), add the expo-build-properties plugin to configure llama.rn to build with OpenCL support: plugins: [ "llama.rn", { "enableOpenCL": true } ].12
+Modify LlamaService.ts: initLlama({..., n_gpu_layers: 35 }).12 This offloads 35 model layers to the Adreno GPU.34
+Rebuild the native app (npx expo prebuild --clean or run-android).
+iOS:
+llama.rn automatically uses Metal.10
+Verify ios/Podfile has IPHONEOS_DEPLOYMENT_TARGET = '14.0'.36
+Open the Xcode project. As recommended by llama.rn 12, go to "Signing & Capabilities," add a capability, and select "Increased Memory Limit" to handle the Phi-3-mini model's memory footprint.
+Ensure the demo device has an "Apple7" (A14/M1) GPU or newer for all Metal features.12
+PM (6h): User Experience (UI Polish).
+Modify the onSend handler. Instead of await LlamaService.completion(), use const stream = await LlamaService.completion(..., { stream: true }).
+Listen to the stream's 'data' events and update the last message in the chat state token-by-token.
+Parse the metadata from the RAG chunks and append a "Source: {metadata.source_doc}" to the end of the generated response.
+Daily Result (Displayable): A side-by-side comparison video (Day 10 vs. Day 11):
+Day 10 (CPU): Show the query. The UI "hangs" for 8-10 seconds, then dumps the full text.
+Day 11 (GPU + UI): Show the same query. The response starts immediately streaming to the screen, token-by-token, and finishes in 2-3 seconds. This is the "Arm AI" win.
+
+Day 12 (12h): Stretch-Goal "Wow" (Hybrid-Cloud Vision RAG)
+
+This day pivots from the original "on-device vision" goal 1 to a far more impressive "hybrid-cloud vision" flow that leverages the entire P1 infrastructure.
+AM (6h): Install react-native-vision-camera.40 Add permissions to AndroidManifest.xml and Info.plist.40 Add a new "Camera" tab to the app. Implement a full-screen <Camera... /> component with a "Take Photo" button.
+PM (6h): Implement the "Hybrid Vision" upload flow.
+onTakePhoto: const photo = await camera.current.takePhoto().
+onUpload: Use react-native-blob-util's fs.readFile(photo.path, 'base64') and fetch to upload the image (as image/jpeg) to the g-cav-raw-data-prod GCS bucket.1
+This upload automatically triggers the entire Day 2-5 GCP pipeline. The data-processor-job (Day 3) will see the .jpg, call Gemini 1.5 Pro Vision, get a description (e.g., "a photo of a large pothole..."), and the package-builder-api (Day 5) will create a new data.sqlite.gz that now includes the vector for that photo's description.
+After upload, automatically trigger the app's "Sync" function from Day 9.
+Daily Result (Displayable): A video of the complete "Hybrid-Wow" loop:
+Show the chat. Query "my photo of a pothole." Result: "I have no context..."
+Go to the Camera tab. Take a photo of a "pothole" (or a stand-in).
+Press "Upload & Sync."
+Switch to the Day 7 GCP Admin Portal. Manually trigger the "Package Build" job to accelerate the demo.
+App shows "Sync Complete." Go back to chat.
+Query: "my photo of a pothole." Result: "Based on your photo of a large pothole on Jalan Sudirman, you should contact the Public Works department." This is the "WOW" factor.
+
+Day 13 (12h): Demo & Narrative Prep
+
+AM (6h): Build the GCP Monitoring Dashboard.1 Create a new dashboard in Cloud Monitoring with widgets for: Cloud Run Job failures, package-builder-api latency, and CDN request count.
+PM (6h): Script and record the 2-minute "winning" video.
+0:00-0:30: The App (Airplane Mode). Show the fast, streaming, GPU-accelerated RAG. (Hits: Technological Implementation, User Experience).
+0:30-0:45: The "Hybrid AI" Sync. Turn off airplane mode. Press "Sync." Explain it's pulling intelligence from a global data factory. (Hits: Potential Impact).
+0:45-1:30: The "GCP Data Factory" (P1 Goal). Show the Day 7 Admin Portal. Upload a new PDF. Trigger the pipeline. Show the GCS bucket with the new package. (Hits: Potential Impact, WOW).
+1:30-1:50: The "Hybrid-Wow" (Day 12). Show the app querying against the new data, proving the loop.
+1:50-2:00: The "Private Cloud Compute" Clincher. "We've built a production-grade, hybrid AI architecture, optimizing GCP for global scale and Arm for private, on-device intelligence.".3
+Daily Result (Displayable): The final, edited 2-minute demo video and a complete README.md.
+
+Day 14 (12h): Final Submission & Buffer
+
+AM (6h): Buffer. Re-record video if audio is bad. Create supporting architectural diagrams for the README.md.
+PM (6h): Submit the project, code repository, and demo video well before the deadline.
+Daily Result (Displayable): The hackathon submission confirmation page.
+
+Appendix: Critical Configurations & Code-Level Blueprints
+
+
+package.json Configuration (op-sqlite, llama.rn)
+
+To enable the native modules, the following configurations are critical.
+op-sqlite (for sqlite-vec support):
+This configuration in the root package.json instructs @op-engineering/op-sqlite to compile itself with the sqlite-vec extension and performance flags.17
+
+JSON
+
+
+{   "name": "GCAV_RN",  ...   "op-sqlite": {     "sqliteVec": true,     "performanceMode": true   } } 
+expo-build-properties (if using Expo for llama.rn):
+This plugin configures the native build to enable OpenCL for llama.rn.12
+
+JSON
+
+
+{   "expo": {    ...     "plugins": [ "expo-build-properties", {           "android": {             "kotlinVersion": "1.8.0"            }         }       ],       [ "llama.rn", {           "enableOpenCL": true          }       ]   } } 
+
+Android Arm Optimization (build.gradle, AndroidManifest.xml)
+
+For a bare React Native project (non-Expo), manual configuration is required.
+android/gradle.properties:
+Enable llama.rn's OpenCL build flag.12
+
+Properties
+
+
+rnllamaBuildFromSource=true rnllamaEnableOpenCL=true 
+android/app/build.gradle:
+Force builds to target only 64-bit Arm, speeding up development builds.12
+
+Groovy
+
+
+android {  ...   defaultConfig {    ...     ndk {       abiFilters "arm64-v8a"     }   } } 
+android/app/src/main/AndroidManifest.xml:
+Allow the llama.rn library to load the system's OpenCL driver.12
+
+XML
+
+
+<manifest...>   <application...>    ...     <uses-native-library android:name="libOpenCL.so" android:required="false" />   </application> </manifest> 
+
+iOS Arm Optimization (Podfile Metal Configuration)
+
+ios/Podfile:
+Ensure the deployment target is at least 14.0.36
+
+Ruby
+
+
+platform :ios, '14.0' 
+Xcode Project:
+llama.rn's documentation notes that full Metal performance requires an "Apple7" GPU (A14/M1) or newer.12 The demo device must meet this spec. Furthermore, navigate to Signing & Capabilities > + Capability > Increased Memory Limit and add it to the project.12 This is essential for loading the multi-gigabyte Phi-3-mini model into memory.
+
+package-builder-api Python Script (Core sqlite-vec Logic)
+
+The following Python snippet is the core logic for the Day 5 Cloud Run service.
+
+Python
+
+
+import sqlite3 import sqlite_vec import numpy as np # Assume 'db_connection' and 'vector_search_client' are initialized # and 'all_metadata' and 'all_vectors' are populated.  # 1. Create local DB on Cloud Run instance db = sqlite3.connect('data.sqlite')  # 2. Load the sqlite-vec extension db.enable_load_extension(True) sqlite_vec.load(db) db.enable_load_extension(False)  print(f"sqlite-vec version: {db.execute('select vec_version()').fetchone()}")  # 3. Create virtual table (dims must match Vertex AI output) db.execute(''' CREATE VIRTUAL TABLE vss_index USING vec0(     text_chunk TEXT,     source_doc TEXT,     embedding FLOAT ) ''')  # 4. Loop and insert data for item in all_metadata:     doc_id = item['id']     vector = all_vectors.get(doc_id) # Get np.array from Vertex          # Must serialize vector to np.float32 blob     vector_blob = vector.astype(np.float32).tobytes()          db.execute(         "INSERT INTO vss_index (rowid, text_chunk, source_doc, embedding) VALUES (?,?,?,?)",         (doc_id, item['text'], item['source'], vector_blob)     )  db.commit() db.close()  # 5.... (Code to compress 'data.sqlite' to 'data.sqlite.gz'  #    and upload to GCS bucket)... 
+
+Table: Judging Criteria Alignment Matrix
+
+
+Judging Criterion
+P0/P1 Feature
+Technical Justification
+Technological Implementation
+On-Device "Unified RAG Stack"
+llama.cpp + Phi-3-mini + sqlite-vec (via op-sqlite and llama.rn).9 100% offline functionality (Day 10).
+
+Arm Optimization
+GPU-accelerated inference via Apple Metal (iOS) and OpenCL (Android). (Day 11).10
+User Experience
+Streaming, Real-time UI
+llama.rn streaming API + GPU acceleration = zero "jank" and an immediate, token-by-token response (Day 11).21
+Potential Impact
+"Private Cloud Compute" Arch.
+Scalable GCP "Data Factory" (P1) 1 mirrors Apple's PCC architecture.3 This is an industry-standard, scalable, privacy-first design (Day 13).
+"WOW" Factor
+"Airplane Mode" Demo
+Demonstrates true, 100% on-device AI with no network connection (Day 10/13).1
+
+Hybrid-Cloud Vision RAG
+Take a photo -> GCP (Gemini 1.5 Vision) catalogs it -> App (On-device RAG) can text-query the photo (Day 12/13).1
+Works cited
+G-CAV_Project_Plan.md:GCP-Accelerated Civic Advoca...
+On-Device LLM or Cloud API? A Practical Checklist for Product Owners and Architects | by Vitalii Oborskyi | Data Science Collective | Sep, 2025 | Medium, accessed November 6, 2025, https://medium.com/data-science-collective/on-device-llm-or-cloud-api-a-practical-checklist-for-product-owners-and-architects-30386f00f148
+How Apple Intelligence Runs AI Locally On-Device: Architecture, Comparisons, and Privacy Explained, accessed November 6, 2025, https://powergentic.beehiiv.com/p/how-apple-intelligence-runs-ai-locally-on-device-architecture-comparisons-and-privacy-explained
+Apple Intelligence: A Privacy-First Paradigm Shift Reshaping the Future of Personal AI, accessed November 6, 2025, https://markets.financialcontent.com/stocks/article/tokenring-2025-11-5-apple-intelligence-a-privacy-first-paradigm-shift-reshaping-the-future-of-personal-ai
+Apple Intelligence On-device vs Cloud features - Reddit, accessed November 6, 2025, https://www.reddit.com/r/apple/comments/1gxhsx7/apple_intelligence_ondevice_vs_cloud_features/
+Introducing Apple's On-Device and Server Foundation Models, accessed November 6, 2025, https://machinelearning.apple.com/research/introducing-apple-foundation-models
+Apple Intelligence and privacy on iPhone, accessed November 6, 2025, https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios
+Private Cloud Compute: A new frontier for AI privacy in the cloud - Apple Security Research, accessed November 6, 2025, https://security.apple.com/blog/private-cloud-compute/
+On-Device RAG for Flutter Apps
+ggml-org/llama.cpp: LLM inference in C/C++ - GitHub, accessed November 6, 2025, https://github.com/ggml-org/llama.cpp
+Guide to Running AI Models Locally on Mobile Devices Using React Native and llama.rn | by Volodymyr Snaichuk | Godel Technologies | Medium, accessed November 6, 2025, https://medium.com/godel-technologies/guide-to-running-ai-models-locally-on-mobile-devices-using-react-native-and-llama-rn-fcd41adbc597
+mybigday/llama.rn: React Native binding of llama.cpp - GitHub, accessed November 6, 2025, https://github.com/mybigday/llama.rn
+Running AI models and LLMs locally on smartphone using React Native | by Elves Vieira, accessed November 6, 2025, https://javascript.plainenglish.io/running-ai-models-and-llms-locally-on-smartphone-using-react-native-6eb098d0c88e
+asg017/sqlite-vec: A vector search SQLite extension that runs anywhere! - GitHub, accessed November 6, 2025, https://github.com/asg017/sqlite-vec
+sqlite-vec on Android and iOS devices - Alex Garcia, accessed November 6, 2025, https://alexgarcia.xyz/sqlite-vec/android-ios.html
+react-native-oh-tpl/op-sqlite - NPM, accessed November 6, 2025, https://www.npmjs.com/package/@react-native-oh-tpl/op-sqlite
+Installation | OP-SQLite Docs - GitHub Pages, accessed November 6, 2025, https://op-engineering.github.io/op-sqlite/docs/installation/
+llama.rn - UNPKG, accessed November 6, 2025, https://app.unpkg.com/llama.rn@0.4.0/files/README.md
+File Handling in React Native Comparison - NPM Compare, accessed November 6, 2025, https://npm-compare.com/react-native-blob-util,react-native-document-picker,react-native-fs
+How to fetch and handle blob data in React Native - LogRocket Blog, accessed November 6, 2025, https://blog.logrocket.com/fetch-handle-blob-data-react-native/
+Performance Overview - React Native, accessed November 6, 2025, https://reactnative.dev/docs/performance
+Using sqlite-vec in Python - Alex Garcia, accessed November 6, 2025, https://alexgarcia.xyz/sqlite-vec/python.html
+Introducing sqlite-vec v0.1.0: a vector search SQLite extension that runs everywhere - Reddit, accessed November 6, 2025, https://www.reddit.com/r/LocalLLaMA/comments/1ehlazq/introducing_sqlitevec_v010_a_vector_search_sqlite/
+Google Cloud run, Django and sqlite - Stack Overflow, accessed November 6, 2025, https://stackoverflow.com/questions/63248020/google-cloud-run-django-and-sqlite
+Retrieval Augmented Generation in SQLite | Towards Data Science, accessed November 6, 2025, https://towardsdatascience.com/retrieval-augmented-generation-in-sqlite/
+How sqlite-vec Works for Storing and Querying Vector Embeddings | by Stephen Collins, accessed November 6, 2025, https://medium.com/@stephenc211/how-sqlite-vec-works-for-storing-and-querying-vector-embeddings-165adeeeceea
+Authenticate with Firebase Anonymously Using JavaScript - Google, accessed November 6, 2025, https://firebase.google.com/docs/auth/web/anonymous-auth
+Building an AI-Powered Note-Taking App in React Native - Part 1: Text Semantic Search, accessed November 6, 2025, https://medium.com/swmansion/building-an-ai-powered-note-taking-app-in-react-native-part-1-text-semantic-search-3f3c94a2f92b
+auth | React Native Firebase, accessed November 6, 2025, https://rnfirebase.io/reference/auth
+Authentication | React Native Firebase, accessed November 6, 2025, https://rnfirebase.io/auth/usage
+User | React Native Firebase, accessed November 6, 2025, https://rnfirebase.io/reference/auth/user
+React-native: download and unzip large language file - Stack Overflow, accessed November 6, 2025, https://stackoverflow.com/questions/61366325/react-native-download-and-unzip-large-language-file
+Android OpenCL question #5621 - ggml-org/llama.cpp - GitHub, accessed November 6, 2025, https://github.com/ggerganov/llama.cpp/issues/5621
+Introducing the new OpenCL™ GPU Backend in llama.cpp for Qualcomm Adreno GPUs | by PAD Editorial | ProAndroidDev, accessed November 6, 2025, https://proandroiddev.com/introducing-the-new-opencl-gpu-backend-in-llama-cpp-for-qualcomm-adreno-gpus-4093655d334c
+React Native + (local) AI : r/reactnative - Reddit, accessed November 6, 2025, https://www.reddit.com/r/reactnative/comments/1hvs3of/react_native_local_ai/
+How can i add IOS 14 support to my React Native app? - Stack Overflow, accessed November 6, 2025, https://stackoverflow.com/questions/64597976/how-can-i-add-ios-14-support-to-my-react-native-app
+[0.76] iOS `minimum OS` version bump to `15.1` Announcement · react-native-community discussions-and-proposals - GitHub, accessed November 6, 2025, https://github.com/react-native-community/discussions-and-proposals/discussions/812
+MTLGPUFamily | Apple Developer Documentation, accessed November 6, 2025, https://developer.apple.com/documentation/metal/mtlgpufamily
+Metal 3 Availablity & GPU Family Table - GitHub Gist, accessed November 6, 2025, https://gist.github.com/schwa/3893c225133fd93ae869492ff8fa1610
+Getting Started - VisionCamera, accessed November 6, 2025, https://react-native-vision-camera.com/docs/guides
+React Native Vision Camera: Installation, Picture Capture, and Video Recording, accessed November 6, 2025, https://dev.to/thaind0/react-native-vision-camera-installation-picture-capture-and-video-recording-5g5j
+Implementing a Camera in a React Native App using react-native-vision-camera - Medium, accessed November 6, 2025, https://medium.com/@prem__kumar/implementing-a-camera-in-a-react-native-app-using-react-native-vision-camera-ef7ec6a143c1
+Speeding up your Build phase - React Native, accessed November 6, 2025, https://reactnative.dev/docs/build-speed
+How to specify supported architectures for android app in build.gradle? - Stack Overflow, accessed November 6, 2025, https://stackoverflow.com/questions/42984644/how-to-specify-supported-architectures-for-android-app-in-build-gradle
