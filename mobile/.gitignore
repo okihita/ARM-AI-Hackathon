@@ -36,3 +36,5 @@ vendor/bundle/
 # Models (too large for git)
 assets/models/*.gguf
 assets/models/*.bin
+android/app/src/main/assets/models/*.gguf
+android/app/src/main/assets/models/*.bin

@@ -1,7 +1,7 @@
 # Model: Phi-3-mini-4k-instruct (Q4_K_M)
 
 **Downloaded:** 2025-11-16  
-**Size:** 1.5GB  
+**Size:** 2.2GB  
 **Format:** GGUF (GPT-Generated Unified Format)
 
 ---
@@ -14,8 +14,8 @@
 | Quantization | Q4_K_M (4-bit mixed) |
 | Context Length | 4096 tokens |
 | Original Size | ~7.6GB (FP16) |
-| Compressed Size | 1.5GB (80% reduction) |
-| Memory Usage | ~2-3GB runtime |
+| Compressed Size | 2.2GB (71% reduction) |
+| Memory Usage | ~3-4GB runtime |
 
 ---
 
