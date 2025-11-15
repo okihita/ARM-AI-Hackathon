@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "RNLlamaSpec_autolinked_build",
+		"source" : "/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/node_modules/llama.rn/android/build/generated/source/codegen/jni"
+	}
+}

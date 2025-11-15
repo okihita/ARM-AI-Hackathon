@@ -1,0 +1,12 @@
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/CMakeFiles/appmodules.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/CMakeFiles/edit_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/CMakeFiles/rebuild_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/OPSQLiteSpec_autolinked_build/CMakeFiles/react_codegen_OPSQLiteSpec.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/OPSQLiteSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/OPSQLiteSpec_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/RNLlamaSpec_autolinked_build/CMakeFiles/react_codegen_RNLlamaSpec.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/RNLlamaSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/RNLlamaSpec_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/safeareacontext_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/mobile/android/app/.cxx/Debug/c4x11r4x/x86_64/safeareacontext_autolinked_build/CMakeFiles/rebuild_cache.dir
