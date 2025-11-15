@@ -1,0 +1,138 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "OPSQLiteSpec_autolinked_build",
+					"jsonFile" : "directory-OPSQLiteSpec_autolinked_build-Debug-3244f0a44b26a6c2b5d2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/GCAVRN/node_modules/@op-engineering/op-sqlite/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "RNLlamaSpec_autolinked_build",
+					"jsonFile" : "directory-RNLlamaSpec_autolinked_build-Debug-c71770089a648788f827.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/GCAVRN/node_modules/llama.rn/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "safeareacontext_autolinked_build",
+					"jsonFile" : "directory-safeareacontext_autolinked_build-Debug-e957252b2143b9663417.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/GCAVRN/node_modules/react-native-safe-area-context/android/src/main/jni",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "appmodules",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "appmodules::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appmodules-Debug-74f5f83bb53ea13525d0.json",
+					"name" : "appmodules",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "react_codegen_OPSQLiteSpec::@1d2ceb4ab0c4d2e06808",
+					"jsonFile" : "target-react_codegen_OPSQLiteSpec-Debug-5acbc9214dbc6a7a83c2.json",
+					"name" : "react_codegen_OPSQLiteSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "react_codegen_RNLlamaSpec::@3011804ba7033a5dd5ff",
+					"jsonFile" : "target-react_codegen_RNLlamaSpec-Debug-ee70ec6379729f477de3.json",
+					"name" : "react_codegen_RNLlamaSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "react_codegen_safeareacontext::@7984cd80db47aa7b952a",
+					"jsonFile" : "target-react_codegen_safeareacontext-Debug-9047847a5a73131599a3.json",
+					"name" : "react_codegen_safeareacontext",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/GCAVRN/android/app/.cxx/Debug/3f2e83x6/arm64-v8a",
+		"source" : "/Users/okihita/ArcaneSanctum/ARM-AI-Hackathon/GCAVRN/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
