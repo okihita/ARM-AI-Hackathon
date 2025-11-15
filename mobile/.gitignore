@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+android/build/
+android/app/build/
+android/.gradle/
+android/.kotlin/
+ios/build/
+ios/Pods/
+
+# Environment
+.env
+.env.local
+android/local.properties
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp
+tmp/
+temp/
+
+# Bundle
+vendor/bundle/

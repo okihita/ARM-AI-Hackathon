@@ -8,6 +8,8 @@ backend/terraform.tfstate*
 backend/.terraform.lock.hcl
 mobile/android/build/
 mobile/android/app/build/
+mobile/android/.gradle/
+mobile/android/.kotlin/
 mobile/ios/build/
 mobile/ios/Pods/
 

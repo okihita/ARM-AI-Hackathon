@@ -46,7 +46,7 @@ npx react-native run-android
 **Overall: 45% Complete**
 
 - Backend: 70% ✅
-- Mobile: 25% 🔴
+- Mobile: 25% ✅
 - Docs: 90% ✅
 
 See `docs/STATUS.md` for details.
@@ -58,7 +58,7 @@ See `docs/STATUS.md` for details.
 - [Project Map](docs/PROJECT_MAP.md) - Navigation guide
 - [Status](docs/STATUS.md) - Current progress
 - [Changelog](docs/CHANGELOG.md) - Development history
-- [Specification](docs/SPECIFICATION_FINAL.md) - Technical spec
+- [Specification](docs/SPECIFICATION.md) - Technical spec
 
 ---
 
