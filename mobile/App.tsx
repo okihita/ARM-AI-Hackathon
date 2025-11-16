@@ -9,15 +9,26 @@ export default class App extends React.Component {
     progress: 0,
   };
 
+  componentDidMount() {
+    console.log('App mounted!');
+    this.addLog('App started');
+  }
+
   addLog = (msg: string) => {
     console.log(msg);
     this.setState({ log: this.state.log + msg + '\n\n' });
   };
 
   testSQLite = async () => {
+    console.log('testSQLite called');
     this.addLog('🔵 Testing SQLite...');
     const result = await DatabaseService.test();
     this.addLog(result);
+  };
+
+  testTouch = () => {
+    console.log('testTouch called');
+    this.addLog('✅ Touch works!');
   };
 
   downloadModel = async () => {
@@ -49,6 +60,13 @@ export default class App extends React.Component {
         <ScrollView style={styles.log}>
           <Text style={styles.logText}>{this.state.log}</Text>
         </ScrollView>
+        <TouchableOpacity 
+          style={[styles.btn, { backgroundColor: '#0a0' }]} 
+          onPress={this.testTouch}
+          onPressIn={() => console.log('Touch IN')}
+          onPressOut={() => console.log('Touch OUT')}>
+          <Text style={styles.btnText}>TEST TOUCH</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={this.testSQLite}>
           <Text style={styles.btnText}>Test SQLite</Text>
         </TouchableOpacity>
