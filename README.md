@@ -1,5 +1,7 @@
 # G-CAV-RN: ARM-Optimized On-Device AI
 
+> ⚠️ **Project Archived** — This project was built for a hackathon but I couldn't make the deadline. Nevertheless, it's been a good learning experience exploring on-device AI with ARM GPU acceleration. Feel free to explore the code!
+
 **Government Civic Assistant with Vector RAG on React Native**
 
 Proving 3-5x ARM GPU acceleration for on-device AI through a privacy-first hybrid system.
